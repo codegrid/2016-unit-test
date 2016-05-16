@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>isPast()のテスト</title>
+<link rel="stylesheet" href="https://cdn.rawgit.com/mochajs/mocha/v2.4.5/mocha.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
+<script src="https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js"></script>
+<script src="https://cdn.rawgit.com/mochajs/mocha/v2.4.5/mocha.js"></script>
+<script>
+  mocha.setup('bdd');
+</script>
+<script src="script/get_status.js"></script>
+<script src="test/get_status_1.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    mocha.checkLeaks();
+    mocha.run();
+  });
+</script>
+</head>
+<body>
+  <div id="mocha"></div>
+</body>
