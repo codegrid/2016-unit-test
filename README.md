@@ -7,8 +7,11 @@
 ## 動作環境
 
 - Node.js v4.4.2
+- Chrome最新版
 
 ## サンプルの使い方
+
+### Node.jsでのテスト
 
 リポジトリをcloneしてきたら、`npm install`を実行してください。  
 その後、`npm test`を実行すると、テストが実行されます。
@@ -19,3 +22,7 @@ cd 2016-unit-test/
 npm install
 npm test
 ```
+
+### ブラウザでのテスト
+
+`browser-demo`ディレクトリのhtmlファイルをChromeなどのブラウザで開くと、テストが実行され結果が確認できます。
