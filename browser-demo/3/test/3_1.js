@@ -26,11 +26,11 @@ describe('Todo.Model.List', function() {
     });
 
     it('引数がDate型じゃない場合エラーになること', function() {
-      expect(function() { todo.isPast('2016/4/1') }).to.throwException('引数がただしくありません');
+      expect(function() { todo.isPast('2016/4/1') }).to.throwException('引数が正しくありません');
     });
 
     it('引数がInvalid Dateの場合エラーになること', function() {
-      expect(function() { todo.isPast(new Date('hoge')) }).to.throwException('引数がただしくありません');
+      expect(function() { todo.isPast(new Date('hoge')) }).to.throwException('引数が正しくありません');
     });
   });
 
