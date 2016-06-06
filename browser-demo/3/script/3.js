@@ -30,7 +30,7 @@ window.Todo = (function() {
     List.prototype.isPast = function(date) {
       var now = Date.now();
       if(!(date instanceof Date) || isNaN(date.getTime())) {
-        throw Error('引数がただしくありません');
+        throw Error('引数が正しくありません');
         return;
       }
       return date.getTime() < now;
@@ -63,11 +63,11 @@ window.Todo = (function() {
       var html = [];
 
       list.forEach((function(todo) {
-        var className = 'todo todo-list' + this.model.getStatus(todo);
+        var className = 'todo todo-' + this.model.getStatus(todo);
         html.push(template(className, todo.content));
       }).bind(this));
 
-      return html;
+      return html.join('');
     };
 
     List.prototype.renderClosed = function() {
