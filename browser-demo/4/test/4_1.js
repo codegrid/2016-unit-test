@@ -1,11 +1,14 @@
 describe('Todo.View.List', function() {
   var todo;
   beforeEach(function() {
-    $('body').append('<div id="closedList"></div>');
-    $('body').append('<div id="todoList"></div>');
+    $('body').append('<ul id="closedList"></ul>');
+    $('body').append('<ul id="todoList"></ul>');
     todo = new Todo.View.List(new Todo.Model.List());
   });
-
+  afterEach(function(){
+    $('#closedList').remove();
+    $('#todoList').remove();
+  });
   describe('.render', function() {
     beforeEach(function() {
       sinon.stub(todo.model, 'fetch', function() {

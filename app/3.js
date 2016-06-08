@@ -63,15 +63,15 @@ window.Todo = (function() {
       var html = [];
 
       list.forEach((function(todo) {
-        var className = 'todo todo-list' + this.model.getStatus(todo);
+        var className = 'todo todo-' + this.model.getStatus(todo);
         html.push(template(className, todo.content));
       }).bind(this));
 
-      return html;
+      return html.join();
     };
 
     List.prototype.renderClosed = function() {
-      if(this.model.length === 0) return;
+      if(this.model.list.length === 0) return;
       var list = this.model.filterByClosed(true);
       var html = this.createHtml(list);
       this.element.closedList.append(html);

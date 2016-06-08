@@ -68,7 +68,7 @@ describe('Todo.View.List', function() {
     });
 
     it('完了したToDoリストを#closedListに挿入すること', function() {
-      expect(todo.element.closedList.length).to.be(1);
+      expect(todo.element.closedList.children().length).to.be(1);
     });
   });
 
@@ -77,11 +77,11 @@ describe('Todo.View.List', function() {
       sinon.stub(todo, 'createHtml', function() {
         return '<li class="todo">todo opening</li>';
       });
-      todo.renderClosed();
+      todo.renderOpening();
     });
 
     it('完了したToDoリストを#todoListに挿入すること', function() {
-      expect(todo.element.todoList.length).to.be(1);
+      expect(todo.element.todoList.children().length).to.be(1);
     });
   });
 });
