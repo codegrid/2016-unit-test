@@ -7,7 +7,7 @@ window.Todo = (function() {
   // ToDoリストのモデル
   Todo.Model.List = (function() {
     function List() {
-      this.url = '/api/list.json';
+      this.url = './api/list.json';
       this.list = [];
     }
 

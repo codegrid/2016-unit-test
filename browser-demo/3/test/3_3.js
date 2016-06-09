@@ -78,7 +78,7 @@ describe('Todo.Model.List', function() {
     var server, method, url, response;
     beforeEach(function() {
       method = 'GET';
-      url = '/api/list.json';
+      url = './api/list.json';
       response = [
         200,
         { 'Content-Type': 'application/json' },

@@ -1,9 +1,13 @@
 describe('Todo.View.List', function() {
   var todo;
   beforeEach(function() {
-    $('body').append('<div id="closedList"></div>');
-    $('body').append('<div id="todoList"></div>');
+    $('body').append('<ul id="closedList"></ul>');
+    $('body').append('<ul id="todoList"></ul>');
     todo = new Todo.View.List(new Todo.Model.List());
+  });
+  afterEach(function(){
+    $('#closedList').remove();
+    $('#todoList').remove();
   });
 
   describe('.render', function() {
@@ -49,6 +53,9 @@ describe('Todo.View.List', function() {
         return 'STATUS';
       });
     });
+    afterEach(function() {
+      todo.model.getStatus.restore();
+    });
 
     it('リストの内容に従ってHTML文字列を返す', function() {
       expect(todo.createHtml(dummyList)).to.be(
@@ -64,7 +71,11 @@ describe('Todo.View.List', function() {
       sinon.stub(todo, 'createHtml', function() {
         return '<li class="todo">todo closed</li>';
       });
+      todo.model.list = ['test'];
       todo.renderClosed();
+    });
+    afterEach(function() {
+      todo.createHtml.restore();
     });
 
     it('完了したToDoリストを#closedListに挿入すること', function() {
@@ -77,7 +88,11 @@ describe('Todo.View.List', function() {
       sinon.stub(todo, 'createHtml', function() {
         return '<li class="todo">todo opening</li>';
       });
+      todo.model.list = ['test'];
       todo.renderOpening();
+    });
+    afterEach(function() {
+      todo.createHtml.restore();
     });
 
     it('完了したToDoリストを#todoListに挿入すること', function() {

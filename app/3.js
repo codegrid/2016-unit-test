@@ -67,7 +67,7 @@ window.Todo = (function() {
         html.push(template(className, todo.content));
       }).bind(this));
 
-      return html.join();
+      return html.join('');
     };
 
     List.prototype.renderClosed = function() {
@@ -78,7 +78,7 @@ window.Todo = (function() {
     };
 
     List.prototype.renderOpening = function() {
-      if(this.model.length === 0) return;
+      if(this.model.list.length === 0) return;
       var list = this.model.filterByClosed(false);
       var html = this.createHtml(list);
       this.element.todoList.append(html);
